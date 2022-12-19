@@ -1,4 +1,17 @@
+.btn-details{
+  border: none;
+  background-color: #FFFFFF;
+}
+
+.btn-details:hover{
+  background-color: #F5F5F5!important;
+}
+
+.blue{
+  color: blue;
+}
 @media (min-width: 600px){
+
   #search-input{
     width: 22ch!important;
   }

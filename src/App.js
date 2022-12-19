@@ -1,13 +1,23 @@
 import './App.css';
 import FrontPage from './components/FrontPage';
 import SearchAppBar from './components/SearchAppBar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CountryDetail from './components/CountryDetail';
+
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <SearchAppBar />
-      <FrontPage />
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<FrontPage />} />
+          <Route path="/country/:countryName" element={<CountryDetail />} />
+      
+      </Routes>
+        </BrowserRouter>
     </div>
+  
   );
 }
 
