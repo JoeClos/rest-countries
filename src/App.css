@@ -10,6 +10,19 @@
 .blue{
   color: blue;
 }
+
+.card {
+  margin:2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-country-card {
+ display:flex;
+ justify-content:center; 
+}
+
 @media (min-width: 600px){
 
   #search-input{

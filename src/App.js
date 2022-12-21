@@ -1,6 +1,6 @@
 import './App.css';
 import FrontPage from './components/FrontPage';
-import SearchAppBar from './components/SearchAppBar';
+// import SearchAppBar from './components/SearchAppBar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CountryDetail from './components/CountryDetail';
 
@@ -8,7 +8,6 @@ import CountryDetail from './components/CountryDetail';
 function App() {
   return (
     <div>
-      <SearchAppBar />
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<FrontPage />} />

@@ -3,32 +3,32 @@ import { ChevronLeft } from "@mui/icons-material";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import SelectedCountry from "./SelectedCountry";
+import { Button } from "@mui/material";
 
 const CountryDetail = () => {
-    const{ countryName }= useParams({});
-    console.log(countryName)
-    const [selectedCountry, setSelectedCountry] = useState();
-    const rootURL = "https://restcountries.com/v3/name/";
+  const { countryName } = useParams({});
+  console.log(countryName);
+  const [selectedCountry, setSelectedCountry] = useState();
+  const rootURL = "https://restcountries.com/v3/name/";
 
-    useEffect(() => {
-         axios
-         .get(`${rootURL}/${countryName}`)
-         .then((response) => {
-            setSelectedCountry(response.data);
-            console.log(setSelectedCountry)
+  useEffect(() => {
+    axios.get(`${rootURL}/${countryName}`).then((response) => {
+      setSelectedCountry(response.data);
+    });
+  }, [countryName]);
 
-         })
-        
-      }, [countryName]);
-
-    return(
-        <div>
-            <SelectedCountry selectedCountry={selectedCountry}/>
-            <Link to={`/`} >
-            <ChevronLeft />
-            </Link>
+  return (
+    <div>
+      <SelectedCountry selectedCountry={selectedCountry} />
+      <Link to={`/`}  style={{ textDecoration: 'none' }}>
+        <div className="btn-country-card">
+            <Button variant="contained" startIcon={<ChevronLeft />}>
+              Back to list
+            </Button>
         </div>
-    )
-}
+      </Link>
+    </div>
+  );
+};
 
 export default CountryDetail;
