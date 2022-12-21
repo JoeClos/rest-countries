@@ -11,7 +11,7 @@
   color: blue;
 }
 
-.card {
+#card {
   margin:2rem;
   display: flex;
   align-items: center;

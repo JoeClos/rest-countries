@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 const SelectedCountry = ({ selectedCountry }) => {
   const classes = useStyles();
   return (
-    <div className="card">
+    <div id="card">
       {Object.values(selectedCountry || []).map((c, index) => (
         <Card className={classes.root} key={index}>
           <CardMedia
