@@ -7,7 +7,6 @@ import { Button } from "@mui/material";
 
 const CountryDetail = () => {
   const { countryName } = useParams({});
-  console.log(countryName);
   const [selectedCountry, setSelectedCountry] = useState();
   const rootURL = "https://restcountries.com/v3/name/";
 
@@ -20,11 +19,11 @@ const CountryDetail = () => {
   return (
     <div>
       <SelectedCountry selectedCountry={selectedCountry} />
-      <Link to={`/`}  style={{ textDecoration: 'none' }}>
+      <Link to={`/`} style={{ textDecoration: "none" }}>
         <div className="btn-country-card">
-            <Button variant="contained" startIcon={<ChevronLeft />}>
-              Back to list
-            </Button>
+          <Button variant="contained" startIcon={<ChevronLeft />}>
+            Back to list
+          </Button>
         </div>
       </Link>
     </div>
