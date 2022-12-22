@@ -18,8 +18,8 @@ const SelectedCountry = ({ selectedCountry }) => {
   const classes = useStyles();
   return (
     <div id="card">
-      {Object.values(selectedCountry || []).map((c, index) => (
-        <Card className={classes.root} key={c.index}>
+      {Object.values(selectedCountry || []).map((c) => (
+        <Card className={classes.root} key={c}>
           <CardMedia
             className={classes.media}
             image={c.flags[1]}
