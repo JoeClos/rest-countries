@@ -1,18 +1,9 @@
-import React from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { TableContainer } from "@mui/material";
+import { React, useState, useEffect } from "react";
+import { TableContainer, TableRow, TableHead, TableCell, TableBody } from "@mui/material";
 import Table from "@mui/material/Table";
-import { TableHead } from "@mui/material";
-import { TableRow } from "@mui/material";
-import { TableCell } from "@mui/material";
-import { TableBody } from "@mui/material";
-// import Pagination from "@mui/material/Pagination";
-// import { TablePagination } from "@mui/material";
 import { ChevronRight } from "@mui/icons-material";
-// import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-// import { Stack } from "@mui/system";
 import SearchAppBar from "./SearchAppBar";
 
 const FrontPage = (props) => {
@@ -32,16 +23,6 @@ const FrontPage = (props) => {
   return (
     <div>
       <SearchAppBar />
-      {/* <Stack spacing={2}> */}
-      <div className="ui search">
-        <div className="ui icon input">
-          <input
-            type="text"
-            placeholder="Search country"
-          />
-          <i className="search icon"></i>
-        </div>
-      </div>
       <TableContainer>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -61,7 +42,7 @@ const FrontPage = (props) => {
                 <TableRow
                   hover
                   role="checkbox"
-                  key={index}
+                  key={country.index}
                   tabIndex={-1}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
@@ -74,7 +55,7 @@ const FrontPage = (props) => {
                   <TableCell align="left">
                     {Object.values(country.languages || []).map(
                       (lan, index) => (
-                        <ul key={index}>
+                        <ul key={country.languages.index}>
                           <li>{lan}</li>
                         </ul>
                       )
@@ -90,16 +71,6 @@ const FrontPage = (props) => {
           </TableBody>
         </Table>
       </TableContainer>
-      {/* <TablePagination
-          rowsPerPageOptions={[5, 10, 25, 100]}
-          component="div"
-          count={setCountries.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        /> */}
-      {/* </Stack> */}
     </div>
   );
 };

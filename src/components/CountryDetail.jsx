@@ -1,7 +1,6 @@
-import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { ChevronLeft } from "@mui/icons-material";
-import { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import SelectedCountry from "./SelectedCountry";
 import { Button } from "@mui/material";

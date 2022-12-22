@@ -19,7 +19,7 @@ const SelectedCountry = ({ selectedCountry }) => {
   return (
     <div id="card">
       {Object.values(selectedCountry || []).map((c, index) => (
-        <Card className={classes.root} key={index}>
+        <Card className={classes.root} key={c.index}>
           <CardMedia
             className={classes.media}
             image={c.flags[1]}
