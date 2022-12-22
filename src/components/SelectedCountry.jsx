@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import { Map } from "@mui/icons-material";
 
 const useStyles = makeStyles({
   root: {
@@ -40,6 +41,7 @@ const SelectedCountry = ({ selectedCountry }) => {
               longitude, this country has population of{" "}
               <span className="blue">{new Intl.NumberFormat().format(c.population)}</span>.
             </Typography>
+            <Typography><a href={c.maps.googleMaps} target="_blank" rel="noreferrer"><Map></Map></a></Typography>
           </CardContent>
         </Card>
       ))}

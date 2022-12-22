@@ -11,9 +11,19 @@ import Table from "@mui/material/Table";
 import { ChevronRight } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import SearchAppBar from "./SearchAppBar";
+import Pagination from "./Pagination";
 
 const FrontPage = (props) => {
   const [countries, setCountries] = useState([]);
+  // User is currently on this page
+  const [currentPage, setCurrentPage] = useState(1);
+  // No of Records to be displayed on each page
+  const [recordsPerPage] = useState(10);
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  // Records to be displayed on the current page
+  const currentRecords = countries.slice(indexOfFirstRecord, indexOfLastRecord);
+  const nPages = Math.ceil(countries.length / recordsPerPage);
 
   useEffect(() => {
     const url = "https://restcountries.com/v3.1/all";
@@ -21,6 +31,7 @@ const FrontPage = (props) => {
       .get(url)
       .then((response) => {
         setCountries(response.data);
+        console.log(response.data)
       })
       .catch((error) => console.error(error));
   }, []);
@@ -28,22 +39,27 @@ const FrontPage = (props) => {
   return (
     <div>
       <SearchAppBar countries={countries} setCountries={setCountries} />
+      <Pagination
+        nPages={nPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
       <TableContainer>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="left">Flag</TableCell>
-              <TableCell align="left">Name</TableCell>
-              <TableCell align="left">Region</TableCell>
-              <TableCell align="left">Population</TableCell>
-              <TableCell align="left">Languages</TableCell>
-              <TableCell align="left">Details</TableCell>
+              <TableCell align="left" sx={{fontSize: "1.2rem"}}><b>Flag</b></TableCell>
+              <TableCell align="left" sx={{fontSize: "1.2rem"}}><b>Name</b></TableCell>
+              <TableCell align="left" sx={{fontSize: "1.2rem"}}><b>Region</b></TableCell>
+              <TableCell align="left" sx={{fontSize: "1.2rem"}}><b>Population</b></TableCell>
+              <TableCell align="left" sx={{fontSize: "1.2rem"}}><b>Languages</b></TableCell>
+              <TableCell align="left" sx={{fontSize: "1.2rem"}}><b>Details</b></TableCell>
             </TableRow>
           </TableHead>
 
           <TableBody>
-            {countries &&
-              countries.map((country) => (
+            {currentRecords &&
+              currentRecords.map((country) => (
                 <TableRow
                   hover
                   role="checkbox"
